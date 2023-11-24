@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var name = ""
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView{
+            Text("Welcome")
+                .tabItem{
+                    Image(systemName: "cup.and.saucer")
+                    Text("Home")
+                }
+            OffersPage()
+                .tabItem{
+                    Image(systemName: "tag")
+                    Text("Offers")
+                }
+            Text("Order Page")
+                .tabItem{
+                    Image(systemName: "cart")
+                    Text("Orders")
+                }
         }
-        .padding()
     }
 }
-
-#Preview {
-    ContentView()
+ 
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
+    
