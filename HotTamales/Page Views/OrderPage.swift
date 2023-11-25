@@ -26,17 +26,18 @@ struct OrderPage: View {
             } else {
                 List {
                     Section("ITEMS") {
-                        ForEach(orderManager.order, id:\.0.id) { item in
-                            OrderItem()
+                        ForEach(orderManager.order, id:\.0.id) 
+                            { item in
+                            OrderItem(item: item)
                         }
                     }.listRowBackground(Color("Background"))
                                         
-                    Section("YOUR DETAILS") {
+                    Section("DETAILS") {
                         VStack {
-                            TextField("Your Name", text: $name)
+                            TextField("Name", text: $name)
                                 .textFieldStyle(.roundedBorder)
                             Spacer().frame(height: 20)
-                            TextField("Your Phone #", text: $phone)
+                            TextField("Phone #", text: $phone)
                                 .keyboardType(.phonePad)
                                 .textFieldStyle(.roundedBorder)
                         }.padding(.top)
@@ -92,4 +93,5 @@ struct OrderPage: View {
 #Preview {
     OrderPage()
         .environmentObject(OrderManager())
+        .environmentObject(MenuManager())
 }
