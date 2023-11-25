@@ -11,25 +11,30 @@ struct ContentView: View {
     @State var name = ""
     var body: some View {
         TabView{
-            Text("Welcome")
+            MenuPage()
                 .tabItem{
                     Image(systemName: "cup.and.saucer")
-                    Text("Home")
+                    Text("Menu")
                 }
             OffersPage()
                 .tabItem{
                     Image(systemName: "tag")
                     Text("Offers")
                 }
-            Text("Order Page")
+            OrderPage()
                 .tabItem{
                     Image(systemName: "cart")
                     Text("Orders")
                 }
+            InfoPage()
+                .tabItem {
+                    Image(systemName: "info")
+                    Text("Info")
+                }
         }
     }
 }
- 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
